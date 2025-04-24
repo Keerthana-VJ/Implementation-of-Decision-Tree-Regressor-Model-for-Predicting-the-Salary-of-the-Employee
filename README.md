@@ -1,4 +1,6 @@
 # Implementation-of-Decision-Tree-Regressor-Model-for-Predicting-the-Salary-of-the-Employee
+### NAME: KEERTHANA V
+### REG NO: 212223220045
 
 ## AIM:
 To write a program to implement the Decision Tree Regressor Model for Predicting the Salary of the Employee.
@@ -7,7 +9,7 @@ To write a program to implement the Decision Tree Regressor Model for Predicting
 1. Hardware – PCs
 2. Anaconda – Python 3.7 Installation / Jupyter notebook
 
-## Algorithm
+## Algorithm:
 1.Import the libraries and read the data frame using pandas
 
 2.Calculate the null values present in the dataset and apply label encoder.
@@ -45,10 +47,38 @@ data.head()
 ## Output:
 ![image](https://github.com/user-attachments/assets/d82d5d7d-37e4-4272-a47a-52c2653994c9)
 
-
+```
+x=data[["Position","Level"]]
+y=data[["Salary"]]
+```
+```
+from sklearn.model_selection import train_test_split
+x_train, x_test, y_train, y_test=train_test_split(x,y,test_size=0.2,random_state=2)
+```
+```
+from sklearn.tree import DecisionTreeRegressor
+dt=DecisionTreeRegressor()
+dt.fit(x_train,y_train)
+y_pred=dt.predict(x_test)
+```
+```
+from sklearn import metrics
+mse=metrics.mean_squared_error(y_test, y_pred)
+mse
+```
 ## Output:
-![Decision Tree Regressor Model for Predicting the Salary of the Employee](sam.png)
-
+![image](https://github.com/user-attachments/assets/aec77c9d-89da-4d01-ba29-2fd247f6da74)
+```
+r2=metrics.r2_score(y_test,y_pred)
+r2
+```
+## Output:
+![image](https://github.com/user-attachments/assets/287b45c3-6db1-43fe-a73e-e765766434f2)
+```
+dt.predict([[5,6]])
+```
+## Output:
+![image](https://github.com/user-attachments/assets/5e2cc940-3abe-4503-a3d8-7fb83cbe1b06)
 
 ## Result:
 Thus the program to implement the Decision Tree Regressor Model for Predicting the Salary of the Employee is written and verified using python programming.
